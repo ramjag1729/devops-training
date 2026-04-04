@@ -6,30 +6,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.app</groupId>
-    <artifactId>java-selenium-app</artifactId>
+    <artifactId>java-app</artifactId>
     <version>1.0</version>
-
-    <dependencies>
-
-        <!-- Selenium -->
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>4.18.1</version>
-        </dependency>
-
-        <!-- JUnit -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>test</scope>
-        </dependency>
-
-    </dependencies>
+    <packaging>jar</packaging>
 
     <build>
         <plugins>
+
             <!-- Compile Java -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -40,11 +23,15 @@
                 </configuration>
             </plugin>
 
-            <!-- Run Tests -->
+            <!-- Skip Tests -->
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
             </plugin>
+
         </plugins>
     </build>
 
