@@ -6,14 +6,30 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.app</groupId>
-    <artifactId>java-app</artifactId>
+    <artifactId>java-web-app</artifactId>
     <version>1.0</version>
-    <packaging>jar</packaging>
+
+    <!-- ✅ Change packaging -->
+    <packaging>war</packaging>
+
+    <dependencies>
+
+        <!-- Servlet API -->
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>6.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
 
     <build>
+        <finalName>java-web-app</finalName>
+
         <plugins>
 
-            <!-- Compile Java -->
+            <!-- Java compile -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
@@ -23,12 +39,21 @@
                 </configuration>
             </plugin>
 
-            <!-- Skip Tests -->
+            <!-- Skip tests -->
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
                 <configuration>
                     <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+
+            <!-- WAR plugin -->
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.4.0</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
 
